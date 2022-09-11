@@ -1,9 +1,15 @@
 import React from 'react';
 
-function Footer(props) {
+import {AiFillInstagram, AiOutlineTwitter} from 'react-icons/ai'
+
+function Footer() {
    return (
-      <div>
-         Footer
+      <div className='footer-container'>
+         <p>© 2022 ALGS All Rights Reserved</p>
+         <div className='icons'>
+            <AiFillInstagram />
+            <AiOutlineTwitter />
+         </div>
       </div>
    );
 }
