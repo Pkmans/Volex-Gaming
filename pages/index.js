@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { client } from '../lib/client';
-import { FooterBanner, HeroBanner, Product } from './components';
+import { FooterBanner, HeroBanner, Product } from '../components';
 
 export default function Home({ products, banner }) {
 
