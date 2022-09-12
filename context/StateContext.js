@@ -85,13 +85,16 @@ function StateContext({ children }) {
          showCart,
          setShowCart,
          cartItems,
+         setCartItems,
          addToCart,
          qty,
          decQty,
          incQty,
          totalQty,
+         setTotalQty,
          onRemove,
          totalPrice,
+         setTotalPrice,
          toggleCartItemQty
       }}>
          {children}

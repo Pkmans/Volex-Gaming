@@ -4,6 +4,8 @@ import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-
 import { client, urlFor } from '../../lib/client';
 import { Product } from '../../components';
 import { useStateContext } from '../../context/StateContext';
+import getStripe from '../../lib/getStripe';
+import toast from 'react-hot-toast';
 
 function ProductDetails({ product, products }) {
    const { image, name, details, price } = product;
@@ -11,6 +13,29 @@ function ProductDetails({ product, products }) {
 
    const { qty, decQty, incQty, addToCart } = useStateContext();
 
+   async function buyNow() {
+      const stripe = await getStripe();
+
+      product.quantity = qty;
+
+      // api call, passing it cart items
+      const response = await fetch('/api/stripe', {
+         method: 'POST',
+         headers: {
+            'Content-Type': 'application/json'
+         },
+         body: JSON.stringify([product])
+      })
+
+      // receive data
+      const data = await response.json();
+
+      // toast for loading 
+      toast.loading('Redirecting to checkout...');
+
+      // stripe redirect to checkout
+      stripe.redirectToCheckout({ sessionId: data.id });
+   }
 
    return (
       <div>
@@ -67,7 +92,9 @@ function ProductDetails({ product, products }) {
                   >
                      Add to Cart
                   </button>
-                  <button type='button' className='buy-now'>Buy Now</button>
+                  <button type='button' className='buy-now' onClick={buyNow}>
+                     Buy Now
+                  </button>
                </div>
             </div>
          </div>
