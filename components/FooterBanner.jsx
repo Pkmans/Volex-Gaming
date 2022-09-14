@@ -14,6 +14,12 @@ function FooterBanner({ footerBanner: { discount, largeText1, largeText2, saleTi
                <h3>{largeText2}</h3>
                <p>{saleTime}</p>
             </div>
+            <img
+               src={urlFor(image && image)}
+               className='footer-banner-image'
+               width={325}
+               height={325}
+            />
             <div className='right'>
                <p>{smallText}</p>
                <h3>{midText}</h3>
@@ -22,12 +28,7 @@ function FooterBanner({ footerBanner: { discount, largeText1, largeText2, saleTi
                   <button type='button'>{buttonText}</button>
                </Link>
             </div>
-            <img
-               src={urlFor(image && image)}
-               className='footer-banner-image'
-               width={325}
-               height={325}
-            />
+
          </div>
       </div>
    );
