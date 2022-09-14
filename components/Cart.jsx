@@ -27,13 +27,11 @@ function Cart(props) {
       // receive data
       const data = await response.json();
 
-      console.log(data);
-
       // toast for loading 
       toast.loading('Redirecting to checkout...');
 
       // stripe redirect to checkout
-      stripe.redirectToCheckout({sessionId: data.id});
+      stripe.redirectToCheckout({ sessionId: data.id });
    }
 
    return (
@@ -94,19 +92,21 @@ function Cart(props) {
 
                ))}
             </div>
-
+            
             {cartItems.length >= 1 && (
-               <div className='cart-bottom'>
-                  <div className='total'>
-                     <h3>Subtotal: </h3>
-                     <h3>${totalPrice}</h3>
+
+                  <div className='cart-bottom'>
+
+                     <div className='total'>
+                        <h3>Subtotal: </h3>
+                        <h3>${totalPrice}</h3>
+                     </div>
+                     <div className='btn-container'>
+                        <button type='button' className='btn' onClick={handleCheckout}>
+                           Pay with Stripe
+                        </button>
+                     </div>
                   </div>
-                  <div className='btn-container'>
-                     <button type='button' className='btn' onClick={handleCheckout}>
-                        Pay with Stripe
-                     </button>
-                  </div>
-               </div>
             )}
 
          </div>

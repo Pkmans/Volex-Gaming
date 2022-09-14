@@ -12,14 +12,14 @@ function Navbar() {
       <div className='navbar-container'>
          <p className='logo'>
             <Link href='/'>
-               AL Gaming Store
+               VOLEX GAMING
             </Link>
          </p>
          <button type='button'
             className='cart-icon'
             onClick={() => setShowCart(true)}
          >
-            <AiOutlineShopping />
+            <AiOutlineShopping size={30}/>
             <span className='cart-item-qty'>{totalQty}</span>
          </button>
 

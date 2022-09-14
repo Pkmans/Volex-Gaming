@@ -6,7 +6,6 @@ body,
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   box-sizing: border-box;
-
 }
 
 ::-webkit-scrollbar {
@@ -19,14 +18,9 @@ a {
 }
 
 .main-container {
-  max-width: 1400px;
+  /* max-width: 1400px; */
   margin: auto;
   width: 100%;
-
-}
-
-.layout {
-  padding: 10px;
 }
 
 .navbar-container {
@@ -34,13 +28,14 @@ a {
   justify-content: space-between;
   margin: 6px 18px;
   position: relative;
+  padding: 15px 50px 10px;
 }
 
 .marquee-text {
   font-size: 29px;
   font-weight: 600;
   margin: 60px 0px;
-  color: #f02d34;
+  color: #0e81c4;
 }
 
 .marquee {
@@ -73,13 +68,13 @@ a {
 }
 
 span.text-red {
-  -webkit-text-stroke: 1px #f02d34;
+  -webkit-text-stroke: 1px #0e81c4;
   margin-left: 6px;
 }
 
 .logo {
   color: gray;
-  font-size: 18px;
+  font-size: 21px;
 
 }
 
@@ -102,7 +97,7 @@ span.text-red {
   right: -8px;
   font-size: 12px;
   color: #eee;
-  background-color: #f02d34;
+  background-color: #0e81c4;
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -114,7 +109,7 @@ span.text-red {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 18px;
   margin-top: 20px;
   width: 100%;
 }
@@ -123,69 +118,81 @@ span.text-red {
   cursor: pointer;
   transform: scale(1, 1);
   transition: transform 0.5s ease;
-  color: #324d67;
-
+  border-radius: 15px;
+  background-color: #ebebeb;
+  padding: 10px 20px 18px;
 }
 
 .product-card:hover {
-  transform: scale(1.1, 1.1)
+  transform: scale(1.05, 1.05)
+}
+
+.product-card .details {
+  /* padding: 10px 20px 18px; */
 }
 
 .product-image {
-  border-radius: 15px;
-  background-color: #ebebeb;
   transform: scale(1, 1);
   transition: transform 0.5s ease;
 }
 
 .product-name {
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .product-price {
-  font-weight: 800;
+  font-weight: 500;
   margin-top: 6px;
   color: black;
 }
 
 .hero-banner-container {
-  padding: 100px 40px;
+  padding: 140px 40px;
   background-color: #dcdcdc;
-  border-radius: 15px;
   position: relative;
   height: 500px;
   line-height: 0.9;
   width: 100%;
-
+  background-image: url('https://i.pinimg.com/originals/a2/94/b5/a294b593769b6bf61b55c152032e7459.jpg');
+  background-attachment: fixed;
 }
 
 .hero-banner-container .beats-solo {
   font-size: 20px;
 }
 
+.herobanner-button-div {
+  bottom: 1rem;
+  margin-top: 7rem;
+  text-align: center;
+}
+
 .hero-banner-container button {
-  border-radius: 15px;
+  border-radius: 10px;
   padding: 10px 16px;
-  background-color: #f02d34;
+  background-color: #0e81c4;
   color: white;
   border: none;
-  margin-top: 40px;
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
   z-index: 10000 !important;
 }
 
-.hero-banner-container h3 {
-  font-size: 4rem;
-  margin-top: 4px;
+.hero-banner-container h1 {
+  text-align: center;
+  color: white;
+  font-size: 4em;
+  font-weight: 500;
+  /* margin: 0 600px; */
 }
 
-.hero-banner-container h1 {
+.hero-banner-container h5 {
+  text-align: center;
   color: white;
-  font-size: 10em;
-  margin-left: -20px;
-  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 200;
+  margin-top: 2rem;
 }
 
 .hero-banner-image {
@@ -242,14 +249,13 @@ span.text-red {
 
 .footer-banner-container {
   padding: 100px 40px;
-  background-color: #f02d34;
+  background-color: #0335818c;
   border-radius: 15px;
   position: relative;
   height: 400px;
   line-height: 1;
   color: white;
-  width: 100%;
-  margin-top: 120px;
+  margin: 120px 250px 0;
 }
 
 .banner-desc {
@@ -261,7 +267,7 @@ span.text-red {
   border-radius: 15px;
   padding: 10px 16px;
   background-color: white;
-  color: red;
+  color: #0e81c4;
   border: none;
   margin-top: 40px;
   font-size: 18px;
@@ -281,10 +287,8 @@ span.text-red {
 
 .footer-banner-image {
   position: absolute;
-  /* top: -35%;
-  left: 8%; */
-  top: -25%;
-  left: 25%;
+  bottom: 10%;
+  left: 40%;
 }
 
 .banner-desc .right {
@@ -324,7 +328,19 @@ span.text-red {
   float: right;
   padding: 40px 10px;
   position: relative;
+  transition: all 1s ease-in-out;
+  animation: slideIn 0.5s ease-in-out;
+  
+}
 
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }
 
 .footer-container {
@@ -365,7 +381,7 @@ span.text-red {
 
 .cart-num-items {
   margin-left: 10px;
-  color: #f02d34;
+  color: #0e81c4;
 }
 
 .empty-cart {
@@ -434,7 +450,7 @@ span.text-red {
 
 .remove-item {
   font-size: 24px;
-  color: #f02d34;
+  color: #0e81c4;
   cursor: pointer;
   background: transparent;
   border: none;
@@ -443,10 +459,10 @@ span.text-red {
 .cart-bottom {
   position: absolute;
   bottom: 12px;
-  right: 5px;
+  left: 0px;
   width: 100%;
   padding: 30px 65px;
-
+  border-top: 1px solid black;
 }
 
 .btn-container {
@@ -464,7 +480,7 @@ span.text-red {
   margin-top: 10px;
   margin-top: 40px;
   text-transform: uppercase;
-  background-color: #f02d34;
+  background-color: #0e81c4;
   color: #fff;
   cursor: pointer;
   transform: scale(1, 1);
@@ -478,10 +494,11 @@ span.text-red {
 .product-detail-container {
   display: flex;
   gap: 40px;
-  margin: 40px;
-  margin-top: 60px;
+  /* margin: 40px;
+  margin-top: 60px; */
   color: #324d67;
-
+  max-width: 1400px;
+  margin: 60px auto 40px;
 }
 
 .product-detail-image {
@@ -495,8 +512,7 @@ span.text-red {
 }
 
 .product-detail-image:hover {
-  background-color: #f02d34;
-
+  background-color: #c0cfff;
 }
 
 .small-images-container {
@@ -514,11 +530,14 @@ span.text-red {
 }
 
 .selected-image {
-  background-color: #f02d34;
+  background-color: #c0cfff;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #7391f56e;
 }
 
 .reviews {
-  color: #f02d34;
+  color: #0e81c4;
   margin-top: 10px;
   display: flex;
   gap: 5px;
@@ -542,7 +561,7 @@ span.text-red {
   font-weight: 700;
   font-size: 26px;
   margin-top: 30px;
-  color: #f02d34;
+  color: #397bd3;
 }
 
 .price .old-price,
@@ -566,12 +585,12 @@ span.text-red {
 
 .buttons .add-to-cart {
   padding: 10px 20px;
-  border: 1px solid #f02d34;
+  border: 1px solid #0e81c4;
   margin-top: 40px;
   font-size: 18px;
   font-weight: 500;
   background-color: white;
-  color: #f02d34;
+  color: #0e81c4;
   cursor: pointer;
   width: 200px;
   transform: scale(1, 1);
@@ -586,7 +605,7 @@ span.text-red {
   width: 200px;
 
   padding: 10px 20px;
-  background-color: #f02d34;
+  background-color: #0e81c4;
   color: white;
   border: none;
   margin-top: 40px;
@@ -614,7 +633,7 @@ span.text-red {
 
 .quantity-desc .minus {
   border-right: 1px solid gray;
-  color: #f02d34;
+  color: #0e81c4;
 }
 
 .quantity-desc .num {
@@ -648,7 +667,7 @@ span.text-red {
 
 .max-qty {
   font-weight: 500;
-  color: #f02d34;
+  color: #0e81c4;
 }
 
 .success-wrapper,
@@ -706,7 +725,7 @@ span.text-red {
 
 .success .description .email {
   margin-left: 5px;
-  color: #f02d34;
+  color: #0e81c4;
 }
 
 .product-max-qty {

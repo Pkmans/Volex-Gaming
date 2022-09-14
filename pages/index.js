@@ -7,14 +7,14 @@ export default function Home({ products, banner }) {
 
   return (
     <div>
-      <HeroBanner heroBanner={banner && banner[0]} />
+      <HeroBanner />
 
       <div className='products-heading'>
         <h2>Best Seller Products</h2>
-        <p>Electronics of many variations</p>
+        <p>These are our customers' most bought products</p>
       </div>
 
-      <div className='products-container'>
+      <div className='products-container' id='products'>
         {products?.map((product) => (
           <Product key={product._id} product={product}/>
         ))}

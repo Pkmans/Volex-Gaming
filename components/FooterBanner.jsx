@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 import { urlFor } from '../lib/client'
 
-function FooterBanner({ footerBanner: {discount, largeText1, largeText2, saleTime, 
-smallText, midText, product, buttonText, image, desc} }) {
+function FooterBanner({ footerBanner: { discount, largeText1, largeText2, saleTime,
+   smallText, midText, product, buttonText, image, desc } }) {
    return (
       <div className='footer-banner-container'>
          <div className='banner-desc'>
@@ -22,7 +22,12 @@ smallText, midText, product, buttonText, image, desc} }) {
                   <button type='button'>{buttonText}</button>
                </Link>
             </div>
-            <img src={urlFor(image && image)} className='footer-banner-image'/>
+            <img
+               src={urlFor(image && image)}
+               className='footer-banner-image'
+               width={325}
+               height={325}
+            />
          </div>
       </div>
    );

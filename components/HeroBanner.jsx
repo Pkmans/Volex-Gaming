@@ -1,28 +1,14 @@
 import React from 'react';
-import Link from 'next/link';
 
-import { urlFor } from '../lib/client'
-
-function HeroBanner({ heroBanner }) {
+function HeroBanner() {
    return (
       <div className='hero-banner-container'>
-         <div>
-            <p>{heroBanner.smallText}</p>
-            <h3>{heroBanner.midText}</h3>
-            <h1>{heroBanner.largeText1}</h1>
-            <img src={urlFor(heroBanner.image)}
-               alt='banner-img'
-               className='hero-banner-image' />
-            <div>
-               <Link href={`/product/${heroBanner.product}`}>
-                  <button type='button'>{heroBanner.buttonText}</button>
-               </Link>
-               <div className='desc'>
-                  <h5>Description</h5>
-                  <p>{heroBanner.desc}</p>
-               </div>
+            <h1>Best Collection of Gaming Equipment</h1>
+            <h5>Volex offers high quality products for fellow gamers.</h5>
+       
+            <div className='herobanner-button-div'>
+                  <button type='button' href='#product'>Shop Now</button>
             </div>
-         </div>
       </div>
    );
 }
