@@ -44,9 +44,7 @@ a {
 
 .marquee {
   position: relative;
-  height: 400px;
   width: 100%;
-  overflow-x: hidden;
 }
 
 .track {

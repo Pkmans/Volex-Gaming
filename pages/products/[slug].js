@@ -8,7 +8,9 @@ import getStripe from '../../lib/getStripe';
 import toast from 'react-hot-toast';
 
 function ProductDetails({ product, products }) {
-   const { image, name, details, price } = product;
+   console.log(products);
+
+   const { image, name, details, price, product_type } = product;
    const [index, setIndex] = useState(0);
 
    const { qty, decQty, incQty, addToCart } = useStateContext();
@@ -103,9 +105,9 @@ function ProductDetails({ product, products }) {
          </div>
 
          <div className='maylike-products-wrapper'>
-            <h2>You may also like</h2>
+            <h2>Similar Products</h2>
             <div className='marquee'>
-               <div className='maylike-products-container track'>
+               <div className='maylike-products-container'>
                   {products.map((product) => (
                      <Product key={product._id} product={product} />
                   ))}
@@ -141,9 +143,9 @@ export async function getStaticProps({ params: { slug } }) {
    // SanityClient Query & Fetch
 
    const productQuery = `*[_type == "product" && slug.current == "${slug}"][0]`;
-   const productsQuery = '*[_type == "product"]';
-
    const product = await client.fetch(productQuery);
+
+   const productsQuery = `*[_type == "product" && product_type == "${product.product_type}" && _id != "${product._id}"]`;
    const products = await client.fetch(productsQuery);
 
    return {
