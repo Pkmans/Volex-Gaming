@@ -47,7 +47,7 @@ function StateContext({ children }) {
          setCartItems([...cartItems, product]);
       }
 
-      toast.success(`${quantity} ${product.name} added to the cart.`);
+      toast.success(`Item successfully added to cart.`);
    }
 
    function onRemove(item) {

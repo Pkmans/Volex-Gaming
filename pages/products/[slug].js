@@ -8,9 +8,7 @@ import getStripe from '../../lib/getStripe';
 import toast from 'react-hot-toast';
 
 function ProductDetails({ product, products }) {
-   console.log(products);
-
-   const { image, name, details, price, product_type } = product;
+   const { image, name, details, price } = product;
    const [index, setIndex] = useState(0);
 
    const { qty, decQty, incQty, addToCart } = useStateContext();
@@ -45,9 +43,13 @@ function ProductDetails({ product, products }) {
             <div>
                <div className='image-wrapper'>
                   <div className='image-container'>
-                     <img src={urlFor(image && image[index])} className='product-detail-image' />
+                     <img
+                        src={urlFor(image && image[index])}
+                        className='product-detail-image vertical-center horizontal-center'
+                     />
                   </div>
                </div>
+
 
                <div className='small-images-container'>
                   {image?.map((item, i) => (
