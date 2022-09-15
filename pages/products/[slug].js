@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
 import { client, urlFor } from '../../lib/client';
@@ -11,7 +11,12 @@ function ProductDetails({ product, products }) {
    const { image, name, details, price } = product;
    const [index, setIndex] = useState(0);
 
-   const { qty, decQty, incQty, addToCart } = useStateContext();
+   const { qty, decQty, incQty, resetQty, addToCart } = useStateContext();
+
+   // Reset Quantity to 1 when viewing another product
+   useEffect(() => {
+      resetQty();
+   }, [product])
 
    async function buyNow() {
       const stripe = await getStripe();
@@ -53,12 +58,12 @@ function ProductDetails({ product, products }) {
                <div className='small-images-box'>
                   {image?.map((item, i) => (
                      <div
+                        key={i}
                         className={i === index ? 'small-image-wrapper selected-image' : 'small-image-wrapper'}
                         onMouseEnter={() => setIndex(i)}
                      >
                         <div className='image-container'>
                            <img
-                              key={i}
                               src={urlFor(item)}
                               className='small-image image-fit'
                            />

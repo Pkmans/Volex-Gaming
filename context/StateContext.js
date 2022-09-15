@@ -3,8 +3,6 @@ import { toast } from 'react-hot-toast';
 
 const Context = createContext();
 
-// let storedTotalQty = 0;
-
 function StateContext({ children }) {
    const [showCart, setShowCart] = useState(false);
    const [cartItems, setCartItems] = useState([]);
@@ -12,33 +10,41 @@ function StateContext({ children }) {
    const [totalQty, setTotalQty] = useState(0);
    const [qty, setQty] = useState(1);
 
-   let foundProduct;
-   let index;
+   // Persist cartItems on page refresh
+   useEffect(() => {
+      const cartData = window.localStorage.getItem('storedCartItems');
 
-   // useEffect(() => {
-   //    storedTotalQty = localStorage.getItem('totalQty') ? localStorage.getItem('totalQty') : 0;
-   // }, [])
+      if (cartData) {
+         setCartItems(JSON.parse(cartData))
+      } else {
+         setCartItems([]);
+      }
+   }, [])
 
-   // useEffect(() => {
-   //    localStorage.setItem('storedTotalQty', `${totalQty}`);
-   // }, [totalQty])
+   // Dynamically calculate totalQty & totalPrice based on cartItems
+   useEffect(() => {
+      localStorage.setItem('storedCartItems', JSON.stringify(cartItems));
 
-   function decQty() {
-      setQty((prevQty) => {
-         if (prevQty - 1 < 1) return 1;
-         return prevQty - 1;
-      })
-   }
+      let totalQty = 0;
+      let totalPrice = 0;
 
-   function incQty() {
-      setQty((prevQty) => prevQty + 1)
-   }
+      if (cartItems.length === 0) return;
+
+      cartItems.forEach(e => {
+         totalQty += e.quantity;
+         totalPrice += e.price * e.quantity;
+      });
+
+      setTotalQty(totalQty);
+      setTotalPrice(totalPrice);
+
+   }, [cartItems])
+
 
    function addToCart(product, quantity) {
       const checkProductInCart = cartItems.find((item) => item._id === product._id);
 
       setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
-      setTotalQty((prevTotalQty) => prevTotalQty + quantity);
 
       if (checkProductInCart) {
          const updatedCartItems = cartItems.map((cartProduct) => {
@@ -60,36 +66,49 @@ function StateContext({ children }) {
       toast.success(`Item successfully added to cart.`);
    }
 
+   // Remove all quantities of product from cart
    function onRemove(item) {
       const updatedCartItems = cartItems.filter((cartItem) => cartItem._id !== item._id);
 
       setTotalPrice((prevTotalPrice) => prevTotalPrice - item.price * item.quantity);
-      setTotalQty((prevTotalQty) => prevTotalQty - item.quantity);
       setCartItems(updatedCartItems);
    }
 
+   // CartItem quantity handler
    function toggleCartItemQty(id, value) {
-      foundProduct = cartItems.find((item) => item._id === id);
-      index = cartItems.findIndex((item) => item._id === id);
-      let newCartItems = cartItems;
+      const foundProduct = cartItems.find((item) => item._id === id);
+      const index = cartItems.findIndex((item) => item._id === id);
+
+      let newCartItems = [...cartItems];
 
       if (value === 'inc') {
          newCartItems[index] = { ...foundProduct, quantity: foundProduct.quantity + 1 }
 
          setCartItems(newCartItems);
-         setTotalQty((prevTotalQty) => prevTotalQty + 1)
-         setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price);
       } else if (value === 'dec') {
          if (foundProduct.quantity > 1) {
             newCartItems[index] = { ...foundProduct, quantity: foundProduct.quantity - 1 }
 
             setCartItems(newCartItems);
-            setTotalQty((prevTotalQty) => prevTotalQty - 1)
-            setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price);
          }
       }
+
    }
 
+   function decQty() {
+      setQty((prevQty) => {
+         if (prevQty - 1 < 1) return 1;
+         return prevQty - 1;
+      })
+   }
+
+   function incQty() {
+      setQty((prevQty) => prevQty + 1)
+   }
+
+   function resetQty() {
+      setQty(1);
+   }
 
    return (
       <Context.Provider value={{
@@ -101,6 +120,7 @@ function StateContext({ children }) {
          qty,
          decQty,
          incQty,
+         resetQty,
          totalQty,
          setTotalQty,
          onRemove,
