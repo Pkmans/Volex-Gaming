@@ -45,20 +45,25 @@ function ProductDetails({ product, products }) {
                   <div className='image-container'>
                      <img
                         src={urlFor(image && image[index])}
-                        className='product-detail-image vertical-center horizontal-center'
+                        className='product-detail-image image-fit'
                      />
                   </div>
                </div>
 
-
-               <div className='small-images-container'>
+               <div className='small-images-box'>
                   {image?.map((item, i) => (
-                     <img
-                        key={i}
-                        src={urlFor(item)}
-                        className={i === index ? 'small-image selected-image' : 'small-image'}
+                     <div
+                        className={i === index ? 'small-image-wrapper selected-image' : 'small-image-wrapper'}
                         onMouseEnter={() => setIndex(i)}
-                     />
+                     >
+                        <div className='image-container'>
+                           <img
+                              key={i}
+                              src={urlFor(item)}
+                              className='small-image image-fit'
+                           />
+                        </div>
+                     </div>
                   ))}
                </div>
             </div>

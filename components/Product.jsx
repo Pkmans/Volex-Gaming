@@ -6,11 +6,11 @@ import { urlFor } from '../lib/client';
 function Product({ product: { image, name, slug, price } }) {
    return (
       <div className='product-card'>
-         <div className='product-image-wrapper'>
+         <div className='image-wrapper'>
             <div className='image-container'>
                <Link href={`/products/${slug.current}`}>
                   <img src={urlFor(image && image[0])}
-                     className='product-image vertical-center horizontal-center'
+                     className='product-image image-fit'
                   />
                </Link>
             </div>

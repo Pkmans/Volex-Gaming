@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { AiOutlineShopping } from 'react-icons/ai';
+import { FaCubes } from 'react-icons/fa';
 
 import Cart from './Cart';
 import { useStateContext } from '../context/StateContext';
@@ -11,6 +12,7 @@ function Navbar() {
    return (
       <div className='navbar-container'>
          <div className='navbar-left'>
+            <FaCubes size={30} />
             <p className='logo'>
                <Link href='/'>
                   VOLEX GAMING

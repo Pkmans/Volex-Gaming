@@ -42,6 +42,7 @@ a {
 }
 
 .navbar-left {
+  display: flex;
   position: absolute;
   left: 2rem;
 }
@@ -51,7 +52,7 @@ a {
   right: 2rem;
 }
 
-.navbar-categories > * {
+.navbar-categories>* {
   font-weight: 500;
   padding: 0 25px;
 }
@@ -96,9 +97,10 @@ span.text-red {
 }
 
 .logo {
-  color: gray;
+  color: rgb(71, 71, 71);
+  margin-left: 0.8rem;
   font-size: 21px;
-
+  font-weight: 500;
 }
 
 .cart-icon {
@@ -152,29 +154,23 @@ span.text-red {
   padding: 10px 20px 18px;
   width: 340px;
   height: 400px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 3px 10px;
+
 }
 
 .product-card:hover {
   transform: scale(1.05, 1.05)
 }
 
-.product-image-wrapper {
-  position: relative;
+.product-card .image-wrapper {
   width: 300px;
   height: 300px;
-  border-radius: 15px;
-  background-color: #ffffff;
 }
 
 .product-image {
   transform: scale(1, 1);
   transition: transform 0.5s ease;
-  max-width: 100%;
-  max-height: 100%;
   padding: 20px;
-  /* object-fit: contain; */
-  /* max-width: 300px;
-  max-height: 300px; */
 }
 
 .product-name {
@@ -422,7 +418,7 @@ span.text-red {
 
 .cart-num-items {
   margin-left: 10px;
-  color: #0e81c4;
+  color: #0260ad;
 }
 
 .empty-cart {
@@ -446,17 +442,20 @@ span.text-red {
   padding: 20px 10px;
 }
 
-.product {
+.cart-product {
   display: flex;
   gap: 30px;
-  padding: 20px;
+  padding: 35px 30px;
+  border-bottom: #cfcfcfd0 1px solid;
 }
 
-.product .cart-product-image {
-  width: 180px;
-  height: 150px;
-  border-radius: 15px;
-  background-color: #ebebeb;
+.cart-product .image-wrapper {
+  width: 160px;
+  height: 120px;
+}
+
+.cart-product .cart-product-image {
+  padding: 5px;
 }
 
 .item-desc .flex {
@@ -468,11 +467,12 @@ span.text-red {
 }
 
 .item-desc .bottom {
-  margin-top: 60px;
+  align-items: center;
+  margin-top: 15px;
 }
 
 .flex h5 {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .flex h4 {
@@ -491,7 +491,7 @@ span.text-red {
 
 .remove-item {
   font-size: 24px;
-  color: #0e81c4;
+  color: rgba(247, 29, 29, 0.769);
   cursor: pointer;
   background: transparent;
   border: none;
@@ -540,77 +540,71 @@ span.text-red {
   margin: 0 auto 40px;
 }
 
-.image-wrapper {
-  position: relative;
+.product-detail-container .image-wrapper {
   width: 650px;
   height: 450px;
+  box-shadow: rgba(0, 0, 0, 0.25) 5px 15px 40px -12px;
+
+}
+
+.image-wrapper {
+  position: relative;
   border-radius: 15px;
   background-color: #ffffff;
 }
 
-.image-container {
-  /* position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto; */
-
-  /* test */
-  width: 100%;
-  height: 100%;
-}
-
-.product-detail-image {
-
-  cursor: pointer;
-  transition: .3s ease-in-out;
-
-  /* test */
+.image-fit {
   max-height: 100%;
   max-width: 100%;
-  padding: 20px;
-}
 
-.product-detail-image:hover {
-  background-color: #c0cfff;
-}
-
-.vertical-center {
   transform: translateY(-50%) !important;
   position: relative !important;
   top: 50% !important;
-}
 
-.horizontal-center {
   display: block !important;
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
-.small-images-container {
+.image-container {
+  width: 100%;
+  height: 100%;
+}
+
+.product-detail-image {
+  padding: 20px;
+  transition: all .3s ease-in-out;
+}
+
+.small-images-box {
   display: flex;
   gap: 10px;
   margin-top: 20px;
+  
+}
+
+.small-image-wrapper {
+  position: relative;
+  width: 80px;
+  height: 70px; 
+  border-radius: 10%;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px -10px;
 }
 
 .small-image {
-  border-radius: 8px;
-  background-color: #ebebeb;
-  width: 70px;
-  height: 70px;
   cursor: pointer;
+  padding: 5px;
 }
 
 .selected-image {
-  background-color: #c0cfff;
   border-style: solid;
-  border-width: 2px;
-  border-color: #7391f56e;
+  border-width: 3px;
+  border-color: rgba(43, 109, 250, 0.548);
 }
 
 .reviews {
-  color: #0e81c4;
+  color: #ffd000;
   margin-top: 10px;
   display: flex;
   gap: 5px;
@@ -634,7 +628,7 @@ span.text-red {
   font-weight: 700;
   font-size: 26px;
   margin-top: 30px;
-  color: #397bd3;
+  color: #2e4e79;
 }
 
 .price .old-price,
@@ -668,6 +662,7 @@ span.text-red {
   width: 200px;
   transform: scale(1, 1);
   transition: transform 0.5s ease;
+
 }
 
 .buttons .add-to-cart:hover {

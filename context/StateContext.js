@@ -1,7 +1,9 @@
-import React, { useState, useContext, createContext } from 'react';
+import React, { useState, useContext, createContext, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 
 const Context = createContext();
+
+// let storedTotalQty = 0;
 
 function StateContext({ children }) {
    const [showCart, setShowCart] = useState(false);
@@ -12,6 +14,14 @@ function StateContext({ children }) {
 
    let foundProduct;
    let index;
+
+   // useEffect(() => {
+   //    storedTotalQty = localStorage.getItem('totalQty') ? localStorage.getItem('totalQty') : 0;
+   // }, [])
+
+   // useEffect(() => {
+   //    localStorage.setItem('storedTotalQty', `${totalQty}`);
+   // }, [totalQty])
 
    function decQty() {
       setQty((prevQty) => {
@@ -79,6 +89,7 @@ function StateContext({ children }) {
          }
       }
    }
+
 
    return (
       <Context.Provider value={{
