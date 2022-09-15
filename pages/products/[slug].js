@@ -38,7 +38,7 @@ function ProductDetails({ product, products }) {
    }
 
    return (
-      <div>
+      <div className='products-box'>
          <div className='product-detail-container'>
             <div>
                <div className='image-wrapper'>
@@ -154,7 +154,5 @@ export async function getStaticProps({ params: { slug } }) {
       props: { product, products } // will be passed to the page component as props
    }
 }
-
-
 
 export default ProductDetails;

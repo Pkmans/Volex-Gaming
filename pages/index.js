@@ -9,18 +9,20 @@ export default function Home({ products, banner }) {
     <div>
       <HeroBanner />
 
-      <div className='products-heading'>
-        <h2>Best Seller Products</h2>
-        <p>These are our customers' most bought products</p>
+      <div className='products-box'>
+        <div className='products-heading'>
+          <h2>Best Seller Products</h2>
+          <p>These are our customers' most bought products</p>
+        </div>
+
+        <div className='products-container' id='products'>
+          {products?.map((product) => (
+            <Product key={product._id} product={product} />
+          ))}
+        </div>
       </div>
 
-      <div className='products-container' id='products'>
-        {products?.map((product) => (
-          <Product key={product._id} product={product}/>
-        ))}
-      </div>
-
-      <FooterBanner footerBanner={banner && banner[0]}/>
+      <FooterBanner footerBanner={banner && banner[0]} />
     </div>
   )
 }
