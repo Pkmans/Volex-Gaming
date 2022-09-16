@@ -9,16 +9,14 @@ import { useStateContext } from '../context/StateContext';
 
 function Navbar() {
    const { showCart, setShowCart, totalQty } = useStateContext();
-   const { data: session } = useSession();
+   const { data: session } = useSession(); // Session === true: user is signed in
 
    return (
       <div className='navbar-container'>
          <div className='navbar-left'>
             <FaCubes size={30} />
             <p className='logo'>
-               <Link href='/'>
-                  VOLEX GAMING
-               </Link>
+               <Link href='/'>VOLEX GAMING</Link>
             </p>
          </div>
 
@@ -31,16 +29,13 @@ function Navbar() {
          </div>
 
          <div className='navbar-right'>
-            {!session ? 
+            {!session ?
                <button type='button' className='login-button' onClick={() => signIn()}>Sign In</button>
                :
                <button type='button' className='login-button' onClick={() => signOut()}>Sign Out</button>
             }
 
-            <button type='button'
-               className='cart-icon'
-               onClick={() => setShowCart(true)}
-            >
+            <button type='button' className='cart-icon' onClick={() => setShowCart(true)}>
                <AiOutlineShopping size={30} />
                <span className='cart-item-qty'>{totalQty}</span>
             </button>

@@ -32,13 +32,9 @@ function ProductDetails({ product, products }) {
          body: JSON.stringify([product])
       })
 
-      // receive data
       const data = await response.json();
 
-      // toast for loading 
       toast.loading('Redirecting to checkout...');
-
-      // stripe redirect to checkout
       stripe.redirectToCheckout({ sessionId: data.id });
    }
 
@@ -50,7 +46,7 @@ function ProductDetails({ product, products }) {
                   <div className='image-container'>
                      <img
                         src={urlFor(image && image[index])}
-                        className='product-detail-image image-fit'
+                        className='product-detail-image image-fit vertical-center horizontal-center'
                      />
                   </div>
                </div>
@@ -65,7 +61,7 @@ function ProductDetails({ product, products }) {
                         <div className='image-container'>
                            <img
                               src={urlFor(item)}
-                              className='small-image image-fit'
+                              className='small-image image-fit vertical-center horizontal-center'
                            />
                         </div>
                      </div>

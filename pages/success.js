@@ -9,6 +9,7 @@ import { startConfetti } from '../lib/utils';
 function Success() {
    const { setCartItems, setTotalPrice, setTotalQty } = useStateContext();
 
+   // Reset States back to default after purchase
    useEffect(() => {
       localStorage.clear();
       setCartItems([]);
@@ -33,7 +34,7 @@ function Success() {
             </p>
             <Link href="/">
                <button type="button" width="300px" className="btn">
-                  Continue Shopping
+                  Back to Shop
                </button>
             </Link>
          </div>

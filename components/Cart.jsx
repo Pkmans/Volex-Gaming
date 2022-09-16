@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import Link from 'next/link';
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping } from 'react-icons/ai';
 import { TiDeleteOutline } from 'react-icons/ti';
 import toast from 'react-hot-toast';
@@ -8,7 +7,7 @@ import { useStateContext } from '../context/StateContext';
 import { urlFor } from '../lib/client';
 import getStripe from '../lib/getStripe';
 
-function Cart(props) {
+function Cart() {
    const cartRef = useRef();
    const { totalPrice, totalQty, cartItems, setShowCart, toggleCartItemQty, onRemove } = useStateContext();
 
@@ -24,13 +23,9 @@ function Cart(props) {
          body: JSON.stringify(cartItems)
       })
 
-      // receive data
       const data = await response.json();
 
-      // toast for loading 
       toast.loading('Redirecting to checkout...');
-
-      // stripe redirect to checkout
       stripe.redirectToCheckout({ sessionId: data.id });
    }
 
@@ -68,7 +63,7 @@ function Cart(props) {
                   <div className='cart-product' key={item._id}>
                      <div className='image-wrapper'>
                         <div className='image-container'>
-                           <img src={urlFor(item.image[0])} className='cart-product-image image-fit' />
+                           <img src={urlFor(item.image[0])} className='cart-product-image image-fit vertical-center horizontal-center' />
                         </div>
                      </div>
                      <div className='item-desc'>

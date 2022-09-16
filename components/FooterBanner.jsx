@@ -1,13 +1,9 @@
 import React from 'react';
-import Link from 'next/link';
 
-import { urlFor } from '../lib/client'
-
-function FooterBanner({ footerBanner: { discount, largeText1, largeText2, saleTime,
-   smallText, midText, product, buttonText, image, desc } }) {
+function FooterBanner() {
    return (
-      <div className='footer-banner-container'>
-         <div className='footer-banner-content-wrapper'>
+      <div className='footer-banner-container banner'>
+         <div className='vertical-center horizontal-center'>
             <h1>Didn't find anything you like? </h1>
             <h5>Send us an email of a product you would like and we'll do our best to offer it in our store!</h5>
 
@@ -15,7 +11,6 @@ function FooterBanner({ footerBanner: { discount, largeText1, largeText2, saleTi
                <a href='mailto:aaronlam2k@gmail.com' target='_blank'>
                   <button type='button'>Email us</button>
                </a>
-
             </div>
          </div>
       </div>

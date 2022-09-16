@@ -96,13 +96,9 @@ function StateContext({ children }) {
       })
    }
 
-   function incQty() {
-      setQty((prevQty) => prevQty + 1)
-   }
+   function incQty() { setQty((prevQty) => prevQty + 1) }
 
-   function resetQty() {
-      setQty(1);
-   }
+   function resetQty() { setQty(1) }
 
    return (
       <Context.Provider value={{

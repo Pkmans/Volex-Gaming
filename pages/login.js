@@ -3,31 +3,26 @@ import { getProviders, signIn } from "next-auth/react"
 import { FacebookLoginButton, GoogleLoginButton, GithubLoginButton } from "react-social-login-buttons";
 
 function login({ providers }) {
+   // Utilize Dynamic JSX type during Runtime to render SpecificLoginButton
 
    return (
       <div>
          <div className='products-box'>
             <h1 className='products-heading'>Login via OAuth</h1>
-
             <div className='login-container'>
-
                {Object.values(providers).map((provider) => {
-
                   const components = {
                      Google: GoogleLoginButton,
-                     Facebook: FacebookLoginButton,
+                     Facebook: FacebookLoginButton, 
                      GitHub: GithubLoginButton
                   }
-
                   const SpecificLoginButton = components[provider.name]
 
                   return (
                      <div key={provider.name} >
-
                         <SpecificLoginButton className='oauth-logins' onClick={() => signIn(provider.id)}>
                            Sign in with {provider.name}
                         </SpecificLoginButton>
-
                      </div>
                   )
                })}
@@ -37,7 +32,7 @@ function login({ providers }) {
    );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
    const providers = await getProviders()
    return {
       props: { providers },

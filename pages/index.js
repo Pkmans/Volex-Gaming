@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { client } from '../lib/client';
 import { FooterBanner, HeroBanner, Product } from '../components';
 
-export default function Home({ products, banner }) {
+export default function Home({ products }) {
   const productSection = useRef(null);
 
   return (
@@ -24,7 +24,7 @@ export default function Home({ products, banner }) {
       </div>
 
 
-      <FooterBanner footerBanner={banner && banner[0]} />
+      <FooterBanner />
     </div>
   )
 }
@@ -35,10 +35,7 @@ export async function getServerSideProps() {
   const productsQuery = '*[_type == "product"]';
   const products = await client.fetch(productsQuery);
 
-  const bannerQuery = '*[_type == "banner"]';
-  const banner = await client.fetch(bannerQuery);
-
   return {
-    props: { products, banner } // will be passed to the page component as props
+    props: { products } // will be passed to the page component as props
   }
 }

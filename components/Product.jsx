@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 import { urlFor } from '../lib/client';
 
@@ -12,11 +11,10 @@ function Product({ product: { image, name, slug, price } }) {
                <div className='image-container'>
                   <img
                      src={urlFor(image && image[0])}
-                     className='product-image image-fit'
+                     className='product-image image-fit vertical-center horizontal-center'
                   />
                </div>
             </div>
-
 
             <div className='details'>
                <h4 className='product-name'>{name}</h4>
