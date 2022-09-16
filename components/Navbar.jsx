@@ -2,12 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 import { AiOutlineShopping } from 'react-icons/ai';
 import { FaCubes } from 'react-icons/fa';
+import { useSession, signIn, signOut } from "next-auth/react"
 
 import Cart from './Cart';
 import { useStateContext } from '../context/StateContext';
 
 function Navbar() {
    const { showCart, setShowCart, totalQty } = useStateContext();
+   const { data: session } = useSession();
 
    return (
       <div className='navbar-container'>
@@ -29,6 +31,12 @@ function Navbar() {
          </div>
 
          <div className='navbar-right'>
+            {!session ? 
+               <button type='button' className='login-button' onClick={() => signIn()}>Sign In</button>
+               :
+               <button type='button' className='login-button' onClick={() => signOut()}>Sign Out</button>
+            }
+
             <button type='button'
                className='cart-icon'
                onClick={() => setShowCart(true)}
