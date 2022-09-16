@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import { client } from '../lib/client';
 import { FooterBanner, HeroBanner, Product } from '../components';
 
 export default function Home({ products, banner }) {
+  const productSection = useRef(null);
 
   return (
     <div>
-      <HeroBanner />
+      <HeroBanner productsRef={productSection} />
 
-      <div className='products-box'>
+      <div className='products-box' ref={productSection}>
         <div className='products-heading'>
           <h2>Best Seller Products</h2>
           <p>These are our customers' most bought products</p>
@@ -21,6 +22,7 @@ export default function Home({ products, banner }) {
           ))}
         </div>
       </div>
+
 
       <FooterBanner footerBanner={banner && banner[0]} />
     </div>

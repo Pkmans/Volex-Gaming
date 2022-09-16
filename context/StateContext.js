@@ -28,8 +28,6 @@ function StateContext({ children }) {
       let totalQty = 0;
       let totalPrice = 0;
 
-      // console.log(cartItems);
-
       cartItems.forEach(e => {
          totalQty += e.quantity;
          totalPrice += e.price * e.quantity;
@@ -43,15 +41,10 @@ function StateContext({ children }) {
 
    function addToCart(product, quantity) {
       const checkProductInCart = cartItems.find((item) => item._id === product._id);
-      console.log('addtoCart called');
-      // console.log(checkProductInCart ? 'product is in cart' : 'product is not in cart');
-      // console.log(product._id);
 
       if (checkProductInCart) {
          const updatedCartItems = cartItems.map((cartProduct) => {
-            console.log(cartProduct.name);
             if (cartProduct._id === product._id) {
-               console.log('boolean true');
                return {
                   ...cartProduct,
                   quantity: cartProduct.quantity + quantity

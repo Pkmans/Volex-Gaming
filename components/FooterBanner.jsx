@@ -7,28 +7,16 @@ function FooterBanner({ footerBanner: { discount, largeText1, largeText2, saleTi
    smallText, midText, product, buttonText, image, desc } }) {
    return (
       <div className='footer-banner-container'>
-         <div className='banner-desc'>
-            <div className='left'>
-               <p>{discount}</p>
-               <h3>{largeText1}</h3>
-               <h3>{largeText2}</h3>
-               <p>{saleTime}</p>
-            </div>
-            <img
-               src={urlFor(image && image)}
-               className='footer-banner-image'
-               width={325}
-               height={325}
-            />
-            <div className='right'>
-               <p>{smallText}</p>
-               <h3>{midText}</h3>
-               <p>{desc}</p>
-               <Link href={`/products/${product}`}>
-                  <button type='button'>{buttonText}</button>
-               </Link>
-            </div>
+         <div className='footer-banner-content-wrapper'>
+            <h1>Didn't find anything you like? </h1>
+            <h5>Send us an email of a product you would like and we'll do our best to offer it in our store!</h5>
 
+            <div className='footer-button-div'>
+               <a href='mailto:aaronlam2k@gmail.com' target='_blank'>
+                  <button type='button'>Email us</button>
+               </a>
+
+            </div>
          </div>
       </div>
    );

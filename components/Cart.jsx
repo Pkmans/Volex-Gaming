@@ -34,8 +34,14 @@ function Cart(props) {
       stripe.redirectToCheckout({ sessionId: data.id });
    }
 
+   // Close Cart if clicked anywhere outside
+   function handleClick(e) {
+      if (e.currentTarget != e.target) return;
+      setShowCart(false);
+   }
+
    return (
-      <div className='cart-wrapper' ref={cartRef}>
+      <div className='cart-wrapper' ref={cartRef} onClick={handleClick}>
          <div className="cart-container">
             <button
                type="button"
