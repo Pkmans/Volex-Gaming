@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps: {session, ...pageProps} }) {
     <SessionProvider session={session}>
       <StateContext>
         <Layout>
-          <Toaster />
+          <Toaster containerStyle={{top: 70}}/>
           <Component {...pageProps} />
         </Layout>
       </StateContext>

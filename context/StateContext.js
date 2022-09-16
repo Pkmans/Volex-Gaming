@@ -28,7 +28,7 @@ function StateContext({ children }) {
       let totalQty = 0;
       let totalPrice = 0;
 
-      if (cartItems.length === 0) return;
+      // console.log(cartItems);
 
       cartItems.forEach(e => {
          totalQty += e.quantity;
@@ -43,23 +43,27 @@ function StateContext({ children }) {
 
    function addToCart(product, quantity) {
       const checkProductInCart = cartItems.find((item) => item._id === product._id);
-
-      setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
+      console.log('addtoCart called');
+      // console.log(checkProductInCart ? 'product is in cart' : 'product is not in cart');
+      // console.log(product._id);
 
       if (checkProductInCart) {
          const updatedCartItems = cartItems.map((cartProduct) => {
-            if (cartProduct._id = product._id) {
+            console.log(cartProduct.name);
+            if (cartProduct._id === product._id) {
+               console.log('boolean true');
                return {
                   ...cartProduct,
                   quantity: cartProduct.quantity + quantity
                }
+            } else {
+               return cartProduct
             }
          })
 
          setCartItems(updatedCartItems);
       } else {
          product.quantity = quantity;
-
          setCartItems([...cartItems, product]);
       }
 
@@ -69,8 +73,6 @@ function StateContext({ children }) {
    // Remove all quantities of product from cart
    function onRemove(item) {
       const updatedCartItems = cartItems.filter((cartItem) => cartItem._id !== item._id);
-
-      setTotalPrice((prevTotalPrice) => prevTotalPrice - item.price * item.quantity);
       setCartItems(updatedCartItems);
    }
 
@@ -92,7 +94,6 @@ function StateContext({ children }) {
             setCartItems(newCartItems);
          }
       }
-
    }
 
    function decQty() {
