@@ -58,7 +58,7 @@ function Cart() {
                </div>
             )}
 
-            <div className='product-container'>
+            <div className='cart-product-container'>
                {cartItems.length >= 1 && cartItems.map((item) => (
                   <div className='cart-product' key={item._id}>
                      <div className='image-wrapper'>

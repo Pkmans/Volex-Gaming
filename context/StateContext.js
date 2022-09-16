@@ -89,6 +89,7 @@ function StateContext({ children }) {
       }
    }
 
+   // Helper Funcs for Product detail quantity
    function decQty() {
       setQty((prevQty) => {
          if (prevQty - 1 < 1) return 1;

@@ -56,7 +56,7 @@ function ProductDetails({ product, products }) {
                      <div
                         key={i}
                         className={i === index ? 'small-image-wrapper selected-image' : 'small-image-wrapper'}
-                        onMouseEnter={() => setIndex(i)}
+                        onClick={() => setIndex(i)}
                      >
                         <div className='image-container'>
                            <img

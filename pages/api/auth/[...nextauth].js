@@ -22,6 +22,7 @@ export const authOptions = {
    pages: {
       signIn: '/login',
    },
+   // Redirects to home page after signing in
    callbacks: {
       async redirect({ url, baseUrl }) {
          if (url.startsWith("/")) return `${baseUrl}${url}`

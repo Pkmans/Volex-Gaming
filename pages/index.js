@@ -16,7 +16,7 @@ export default function Home({ products }) {
           <p>These are our customers' most bought products</p>
         </div>
 
-        <div className='products-container' id='products'>
+        <div className='products-container'>
           {products?.map((product) => (
             <Product key={product._id} product={product} />
           ))}
