@@ -9,7 +9,7 @@ body,
 }
 
 ::-webkit-scrollbar {
-  /* width: 0px; */
+  width: 0px;
 }
 
 a {
@@ -64,9 +64,9 @@ a {
 
 .navbar-container {
   display: flex;
-  margin: 6px 18px;
+  margin: 20px 15px;
   position: relative;
-  padding: 15px 50px;
+  padding: 10px 50px;
   justify-content: center;
   align-items: center;
 }
@@ -79,6 +79,7 @@ a {
   display: flex;
   position: absolute;
   left: 2rem;
+  align-items: center;
 }
 
 .logo {
@@ -88,9 +89,9 @@ a {
   font-weight: 500;
 }
 
-.navbar-categories>* {
+.navbar-categories>a {
   font-weight: 500;
-  padding: 0 25px;
+  padding: 0 20px;
 }
 
 .navbar-right {
@@ -292,7 +293,7 @@ a {
 }
 
 .herobanner-button-div {
-  margin-top: 2.3rem;
+  margin-top: 2.5rem;
   text-align: center;
 }
 
@@ -740,28 +741,9 @@ a {
 }
 
 
-@media screen and (max-width:800px) {
+@media screen and (max-width:1000px) {
   .hero-banner-container {
     height: 560px;
-  }
-
-  .hero-banner-image {
-    width: 77%;
-    height: 62%;
-    top: -2%;
-    right: -6%;
-  }
-
-  .footer-banner-container {
-    height: 560px;
-    margin-top: 80px;
-  }
-
-  .footer-banner-image {
-    width: 77%;
-    left: 30%;
-    top: 6%;
-    height: 56%
   }
 
   .hero-banner-container {
@@ -776,9 +758,9 @@ a {
     font-size: 40px;
   }
 
-  .hero-banner-container button {
-    margin-top: 90px;
-    z-index: 10000;
+  .footer-banner-container {
+    height: 560px;
+    margin-top: 80px;
   }
 
   .desc {
@@ -836,8 +818,6 @@ a {
   .top {
     flex-wrap: wrap;
     gap: 10px;
-
-
   }
 
   .item-desc .bottom {
@@ -889,4 +869,43 @@ a {
     width: 300px;
     margin: auto;
   }
+}
+
+@media screen and (max-width: 420px) {
+  /* Navbar */
+  .navbar-container {
+    margin: 20px 0px;
+  }
+
+  .navbar-left {
+    left: 10px;
+  }
+
+  .navbar-right {
+    right: 16px;
+  }
+
+  /* HeroBanner */
+  .hero-banner-container {
+    height: 450px;
+  }
+
+  .hero-banner-container h1 {
+    font-size: 36px;
+  }
+
+  .hero-banner-container h5 {
+    font-size: 18px;
+  }
+
+  .products-heading h2 {
+    font-size: 30px;
+    font-weight: 800;
+  }
+  
+  .products-heading p {
+    font-size: 13px;
+    font-weight: 200;
+  }
+
 }
