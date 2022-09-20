@@ -25,7 +25,7 @@ function Navbar() {
 
    return (
       <>
-         {width < 980 ? (
+         {width < 1000 ? (
             <div className='navbar-container'>
                <div className='navbar-left'>
                   <Button

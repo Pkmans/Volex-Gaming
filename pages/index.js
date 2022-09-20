@@ -21,6 +21,8 @@ export default function Home({ products }) {
             <Product key={product._id} product={product} />
           ))}
         </div>
+
+        
       </div>
 
 

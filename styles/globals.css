@@ -284,7 +284,7 @@ a {
   background-color: white;
   padding: 140px 40px;
   position: relative;
-  height: 580px;
+  height: 560px;
   line-height: 0.9;
   width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://i.pinimg.com/originals/a2/94/b5/a294b593769b6bf61b55c152032e7459.jpg');
@@ -317,7 +317,7 @@ a {
 .banner h1 {
   text-align: center;
   color: white;
-  font-size: 4em;
+  font-size: 64px;
   font-weight: 500;
   width: fit-content;
   margin: auto;
@@ -326,7 +326,7 @@ a {
 .banner h5 {
   text-align: center;
   color: white;
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: 200;
   margin: 2rem auto 0;
   width: fit-content;
@@ -343,13 +343,19 @@ a {
 .products-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: center;
   gap: 18px;
   margin: 20px auto 0;
-  max-width: 74.5%;
+  padding: 0 75px;
+  /* max-width: 74.5%; */
 }
 
 /* -------- Product Card -------- */
+
+:root {
+  --cardSize: 340px;
+  --horzPadding: 20px;
+}
 
 .product-card {
   cursor: pointer;
@@ -357,10 +363,13 @@ a {
   transition: transform 0.5s ease;
   border-radius: 15px;
   background-color: #ffffff;
-  padding: 10px 20px 18px;
-  width: 340px;
-  height: 400px;
+  padding: 18px;
+  padding-left: var(--horzPadding);
+  padding-right: var(--horzPadding);
+  width: var(--cardSize);
+  /* height: 400px; */
   box-shadow: rgba(0, 0, 0, 0.05) 0px 3px 10px;
+
 }
 
 .product-card:hover {
@@ -368,8 +377,8 @@ a {
 }
 
 .product-card .image-wrapper {
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: calc(var(--cardSize) - var(--horzPadding) * 2);
 }
 
 .product-image {
@@ -410,9 +419,9 @@ a {
   background-color: white;
   padding: 140px 40px;
   position: relative;
-  height: 480px;
   line-height: 1.1;
   width: 100%;
+  height: 530px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1614179924047-e1ab49a0a0cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80');
   background-attachment: fixed;
   background-position: 0 80%;
@@ -741,26 +750,74 @@ a {
 }
 
 
-@media screen and (max-width:1000px) {
+@media screen and (max-width: 1750px) {
+  .products-container {
+    padding: 0 0px;
+  }
+}
+
+@media screen and (max-width: 1475px) {
+  :root {
+    --cardSize: 290px;
+  }
+}
+
+@media screen and (max-width: 1285px) {
+  :root {
+    --cardSize: 250px;
+  }
+
   .hero-banner-container {
-    height: 560px;
+    height: 490px;
+  }
+
+  .footer-banner-container {
+    height: 460px;
+  }
+}
+
+@media screen and (max-width:1000px) {
+
+  /* Navbar */
+  .navbar-container {
+    margin: 20px 0px;
+  }
+
+  .navbar-left {
+    left: 10px;
+  }
+
+  .navbar-right {
+    right: 20px;
+  }
+
+  .hero-banner-container {
+    height: 450px;
   }
 
   .hero-banner-container {
     line-height: 1.3;
   }
 
-  .hero-banner-container h1 {
+  .banner h1 {
     font-size: 50px;
   }
 
-  .hero-banner-container h3 {
-    font-size: 40px;
+  .banner h5 {
+    font-size: 20px;
+  }
+
+  .products-heading h2 {
+    font-size: 35px;
+
+  }
+  
+  .products-heading p {
+    font-size: 12px;
   }
 
   .footer-banner-container {
-    height: 560px;
-    margin-top: 80px;
+    height: 420px;
   }
 
   .desc {
@@ -871,41 +928,64 @@ a {
   }
 }
 
-@media screen and (max-width: 420px) {
-  /* Navbar */
-  .navbar-container {
-    margin: 20px 0px;
+
+
+@media screen and (max-width: 550px) {
+
+  :root {
+    --cardSize: 200px;
   }
 
-  .navbar-left {
-    left: 10px;
-  }
-
-  .navbar-right {
-    right: 16px;
-  }
 
   /* HeroBanner */
   .hero-banner-container {
-    height: 450px;
+    height: 380px;
+    padding: 140px 20px;
   }
 
-  .hero-banner-container h1 {
+  .footer-banner-container {
+    height: 350px;
+  }
+
+  .banner h1 {
     font-size: 36px;
   }
 
-  .hero-banner-container h5 {
-    font-size: 18px;
+  .banner h5 {
+    font-size: 16px;
   }
 
   .products-heading h2 {
-    font-size: 30px;
-    font-weight: 800;
-  }
-  
-  .products-heading p {
-    font-size: 13px;
-    font-weight: 200;
+    font-size: 27px;
   }
 
+  .products-heading p {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  :root {
+    --cardSize: 260px;
+  }
+
+}
+
+@media screen and (max-width: 326px) {
+  :root {
+    --cardSize: 200px;
+  }
+F
+  .banner h1 {
+    font-size: 25px;
+  }
+
+  .banner h5 {
+    font-size: 12px;
+
+  }
+
+  .logo {
+    font-size: 15px;
+  }
 }
