@@ -13,7 +13,7 @@ export default function Home({ products }) {
       <div className='products-box' ref={productSection}>
         <div className='products-heading'>
           <h2>Best Seller Products</h2>
-          <p>These are our customers' most bought products</p>
+          <p>These are our customers&apos; most bought products</p>
         </div>
 
         <div className='products-container'>
