@@ -88,13 +88,13 @@ function ProductDetails({ product, products }) {
                <div className='quantity'>
                   <h3>Quantity: </h3>
                   <p className='quantity-desc'>
-                     <span className='minus' onClick={() => decQty()}>
+                     <div className='minus' onClick={() => decQty()}>
                         <AiOutlineMinus />
-                     </span>
-                     <span className='num'>{qty}</span>
-                     <span className='plus' onClick={() => incQty()}>
+                     </div>
+                     <div className='num'>{qty}</div>
+                     <div className='plus' onClick={() => incQty()}>
                         <AiOutlinePlus />
-                     </span>
+                     </div>
                   </p>
                </div>
 

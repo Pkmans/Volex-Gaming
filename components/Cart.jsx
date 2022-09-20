@@ -6,10 +6,12 @@ import toast from 'react-hot-toast';
 import { useStateContext } from '../context/StateContext';
 import { urlFor } from '../lib/client';
 import getStripe from '../lib/getStripe';
+import {useWindowSize} from '../lib/utils.js';
 
 function Cart() {
    const cartRef = useRef();
    const { totalPrice, totalQty, cartItems, setShowCart, toggleCartItemQty, onRemove } = useStateContext();
+   const {width} = useWindowSize();
 
    async function handleCheckout() {
       const stripe = await getStripe();
@@ -43,13 +45,13 @@ function Cart() {
                className="cart-heading"
                onClick={() => setShowCart(false)}>
                <AiOutlineLeft />
-               <span className="heading">Your Cart</span>
-               <span className="cart-num-items">({totalQty} items)</span>
+               <div className="heading">Your Cart</div>
+               <div className="cart-num-items">({totalQty} items)</div>
             </button>
 
             {cartItems.length < 1 && (
                <div className='empty-cart'>
-                  <AiOutlineShopping size={150} />
+                  <AiOutlineShopping size={width > 655 ? 150 : 100} />
                   <h3>Your shopping cart is empty.</h3>
                   <button type='button' className='btn' onClick={() => setShowCart(false)}>
                      Continue Shopping
@@ -74,13 +76,13 @@ function Cart() {
                         <div className='flex bottom'>
                            <div>
                               <p className='quantity-desc'>
-                                 <span className='minus' onClick={() => toggleCartItemQty(item._id, 'dec')}>
+                                 <div className='minus' onClick={() => toggleCartItemQty(item._id, 'dec')}>
                                     <AiOutlineMinus />
-                                 </span>
-                                 <span className='num'>{item.quantity}</span>
-                                 <span className='plus' onClick={() => toggleCartItemQty(item._id, 'inc')}>
+                                 </div>
+                                 <div className='num'>{item.quantity}</div>
+                                 <div className='plus' onClick={() => toggleCartItemQty(item._id, 'inc')}>
                                     <AiOutlinePlus />
-                                 </span>
+                                 </div>
                               </p>
                            </div>
                            <h4>${item.price}</h4>
