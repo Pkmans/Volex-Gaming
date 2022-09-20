@@ -6,12 +6,12 @@ import toast from 'react-hot-toast';
 import { useStateContext } from '../context/StateContext';
 import { urlFor } from '../lib/client';
 import getStripe from '../lib/getStripe';
-import {useWindowSize} from '../lib/utils.js';
+import { useWindowSize } from '../lib/utils.js';
 
 function Cart() {
    const cartRef = useRef();
    const { totalPrice, totalQty, cartItems, setShowCart, toggleCartItemQty, onRemove } = useStateContext();
-   const {width} = useWindowSize();
+   const { width } = useWindowSize();
 
    async function handleCheckout() {
       const stripe = await getStripe();
@@ -104,15 +104,16 @@ function Cart() {
             {cartItems.length >= 1 && (
 
                <div className='cart-bottom'>
-
-                  <div className='total'>
-                     <h3>Subtotal: </h3>
-                     <h3>${(Math.round(totalPrice * 100) / 100).toFixed(2)}</h3>
-                  </div>
-                  <div className='btn-container'>
-                     <button type='button' className='btn' onClick={handleCheckout}>
-                        Pay with Stripe
-                     </button>
+                  <div className='bottom-container'>
+                     <div className='total'>
+                        <h3>Subtotal: </h3>
+                        <h3>${(Math.round(totalPrice * 100) / 100).toFixed(2)}</h3>
+                     </div>
+                     <div className='btn-container'>
+                        <button type='button' className='btn' onClick={handleCheckout}>
+                           Pay with Stripe
+                        </button>
+                     </div>
                   </div>
                </div>
             )}
