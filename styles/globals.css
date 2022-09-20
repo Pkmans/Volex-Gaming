@@ -461,6 +461,7 @@ a {
   margin: 0 auto 40px;
 }
 
+
 /* Product Images */
 
 .product-detail-container .image-wrapper {
@@ -492,6 +493,7 @@ a {
 
 .small-images-box {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin-top: 20px;
 
@@ -562,12 +564,13 @@ a {
 .product-detail-desc .buttons {
   display: flex;
   gap: 30px;
+  margin-top: 40px;
 }
 
 .buttons .add-to-cart {
   padding: 10px 20px;
   border: 1px solid #0e81c4;
-  margin-top: 40px;
+  /* margin-top: 40px; */
   font-size: 18px;
   font-weight: 500;
   background-color: white;
@@ -590,7 +593,7 @@ a {
   background-color: #0e81c4;
   color: white;
   border: none;
-  margin-top: 40px;
+  /* margin-top: 40px; */
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
@@ -628,22 +631,24 @@ a {
 
 /* -------- Similar Products Section -------- */
 
-.maylike-products-wrapper {
+.similar-products-wrapper {
   margin-top: 120px;
 }
 
-.maylike-products-wrapper h2 {
+.similar-products-wrapper h2 {
   text-align: center;
   margin: 50px;
   color: #324d67;
   font-size: 28px;
 }
 
-.maylike-products-container {
+.similar-products-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
   margin-top: 20px;
+
 }
 
 .marquee {
@@ -714,9 +719,10 @@ a {
   border-radius: 3%;
   background-color: rgb(250, 250, 250);
   box-shadow: rgba(0, 0, 0, 0.25) 5px 15px 40px -12px;
+
   margin: auto;
   padding: 50px;
-  width: 20%;
+  width: 400px;
 }
 
 .oauth-logins {
@@ -760,6 +766,19 @@ a {
   :root {
     --cardSize: 290px;
   }
+
+  .product-detail-container {
+    max-width: 1100px;
+  }
+
+  .product-detail-container .image-wrapper {
+    width: 500px;
+    height: 350px;
+    box-shadow: rgba(0, 0, 0, 0.25) 5px 15px 40px -12px;
+
+  }
+
+
 }
 
 @media screen and (max-width: 1285px) {
@@ -774,6 +793,19 @@ a {
   .footer-banner-container {
     height: 460px;
   }
+
+  .product-detail-container {
+    max-width: 980px;
+  }
+
+
+}
+
+@media screen and (max-width: 1140px) {
+  /* .product-detail-desc .buttons {
+    flex-direction: column;
+    gap: 0px;
+  } */
 }
 
 @media screen and (max-width:1000px) {
@@ -807,11 +839,12 @@ a {
     font-size: 20px;
   }
 
+  /* Product Details and Cart */
+
   .products-heading h2 {
     font-size: 35px;
-
   }
-  
+
   .products-heading p {
     font-size: 12px;
   }
@@ -828,9 +861,9 @@ a {
     flex-wrap: wrap;
   }
 
-  .product-detail-container .product-detail-image {
-    width: 350px;
-    height: 350px;
+  .product-detail-container .image-wrapper {
+    width: 600px;
+    height: 400px;
   }
 
   .cart-container {
@@ -848,7 +881,6 @@ a {
 
   .product {
     padding: 20px 5px;
-
   }
 
   .product .cart-product-image {
@@ -899,11 +931,6 @@ a {
     font-size: 20px;
   }
 
-  .track {
-    animation: marquee 10s linear infinite;
-    width: 550%;
-  }
-
   .success-wrapper {
     min-height: 69vh;
   }
@@ -928,14 +955,18 @@ a {
   }
 }
 
-
+@media screen and (max-width: 655px) {
+  .product-detail-container .image-wrapper {
+    width: 450px;
+    height: 300px;
+  }
+}
 
 @media screen and (max-width: 550px) {
 
   :root {
     --cardSize: 200px;
   }
-
 
   /* HeroBanner */
   .hero-banner-container {
@@ -962,6 +993,17 @@ a {
   .products-heading p {
     font-size: 12px;
   }
+
+  /* Product Detail */
+  .product-detail-container .image-wrapper {
+    width: 350px;
+    height: 250px;
+  }
+
+  .small-image-wrapper {
+    width: 60px;
+    height: 50px;
+  }
 }
 
 @media screen and (max-width: 450px) {
@@ -969,14 +1011,41 @@ a {
     --cardSize: 260px;
   }
 
+  .login-container {
+    width: 310px;
+    padding: 23px;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+  .product-detail-container .image-wrapper {
+    width: 300px;
+    height: 250px;
+  }
+  
+  .product-detail-desc .buttons {
+    display: inline;
+  }
+
+
+  .buttons .add-to-cart {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .buttons .buy-now {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 326px) {
   :root {
     --cardSize: 200px;
   }
-F
-  .banner h1 {
+
+  F .banner h1 {
     font-size: 25px;
   }
 
@@ -987,5 +1056,11 @@ F
 
   .logo {
     font-size: 15px;
+  }
+
+  .login-container {
+    width: 240px;
+    padding: 10px;
+
   }
 }

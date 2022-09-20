@@ -41,8 +41,8 @@ function ProductDetails({ product, products }) {
    return (
       <div className='products-box'>
          <div className='product-detail-container'>
-            <div>
-               <div className='image-wrapper'>
+            <div className='product-images-box horizontal-center'>
+               <div className='image-wrapper horizontal-center'>
                   <div className='image-container'>
                      <img
                         src={urlFor(image && image[index])}
@@ -112,10 +112,10 @@ function ProductDetails({ product, products }) {
             </div>
          </div>
 
-         <div className='maylike-products-wrapper'>
+         <div className='similar-products-wrapper'>
             <h2>Similar Products</h2>
             <div className='marquee'>
-               <div className='maylike-products-container'>
+               <div className='similar-products-container'>
                   {products.map((product) => (
                      <Product key={product._id} product={product} />
                   ))}

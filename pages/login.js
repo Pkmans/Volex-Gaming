@@ -8,12 +8,14 @@ function login({ providers }) {
    return (
       <div>
          <div className='products-box'>
-            <h1 className='products-heading'>Login via OAuth</h1>
+            <div className='products-heading'>
+               <h2>Login via OAuth</h2>
+            </div>
             <div className='login-container'>
                {Object.values(providers).map((provider) => {
                   const components = {
                      Google: GoogleLoginButton,
-                     Facebook: FacebookLoginButton, 
+                     Facebook: FacebookLoginButton,
                      GitHub: GithubLoginButton
                   }
                   const SpecificLoginButton = components[provider.name]
@@ -28,7 +30,7 @@ function login({ providers }) {
                })}
             </div>
          </div>
-      </div>
+      </div >
    );
 }
 
