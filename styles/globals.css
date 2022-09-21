@@ -17,9 +17,9 @@ body,
   box-sizing: border-box;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 0px;
-}
+} */
 
 a {
   color: inherit;
@@ -305,6 +305,7 @@ a {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://i.pinimg.com/originals/a2/94/b5/a294b593769b6bf61b55c152032e7459.jpg');
   background-attachment: fixed;
   background-size: cover;
+  
 }
 
 .herobanner-button-div {
@@ -434,7 +435,7 @@ a {
   height: 510px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1614179924047-e1ab49a0a0cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80');
   background-attachment: fixed;
-  background-position: 0 80%;
+  background-position: 50% 80%;
   background-size: cover;
 }
 
@@ -817,6 +818,15 @@ a {
 
 @media screen and (max-width:1000px) {
 
+  .hero-banner-container {
+    background-attachment: scroll;
+  }
+
+  .footer-banner-container {
+    background-attachment: scroll;
+    background-size: cover;
+  }
+
   /* Navbar */
   .navbar-container {
     margin: 20px 0px;
@@ -933,16 +943,14 @@ a {
     color: black;
   }
 
-  .quantity-desc div {
+  .cart-container .quantity-desc div {
     display: inline;
     font-size: 16px;
     padding: 6px 5px;
     cursor: pointer;
   }
 
-  .quantity-desc .num {
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
+  .cart-container .quantity-desc .num {
     font-size: 16px;
     padding-left: 10px;
     padding-right: 10px;
@@ -956,9 +964,6 @@ a {
     padding: 30px 65px;
     padding-top: 40px !important;
   }
-
-
-
 
   /* Success page */
 
@@ -989,6 +994,17 @@ a {
 @media screen and (max-width: 655px) {
   :root {
     --cart-bottom-height: 130px;
+  }
+
+  .hero-banner-container {
+    background-attachment: scroll;
+    background-size: 200% 180%;
+    background-position: 40% 10%;
+  }
+
+  .footer-banner-container {
+    background-attachment: scroll;
+    background-size: 140% 140%;
   }
 
   .btn-container button {
@@ -1033,14 +1049,13 @@ a {
     color: black;
   }
 
-  .quantity-desc {
+  .cart-container .quantity-desc {
     padding: 2px;
   }
 
-  .quantity-desc .num {
+  .cart-container .quantity-desc .num {
     padding-top: 2px;
     padding-bottom: 2px;
-
   }
 
   .total h3 {
