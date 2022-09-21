@@ -7,16 +7,16 @@ export const authOptions = {
    // Configure one or more authentication providers
    providers: [
       GoogleProvider({
-         clientId: process.env.GOOGLE_CLIENT_ID,
-         clientSecret: process.env.GOOGLE_CLIENT_SECRET
+         clientId: process.env.NEXTAUTH_SECRET_GOOGLE_CLIENT_ID,
+         clientSecret: process.env.NEXTAUTH_SECRET_GOOGLE_CLIENT_SECRET
       }),
       FacebookProvider({
-         clientId: process.env.FACEBOOK_CLIENT_ID,
-         clientSecret: process.env.FACEBOOK_CLIENT_SECRET
+         clientId: process.env.NEXTAUTH_SECRET_FACEBOOK_CLIENT_ID,
+         clientSecret: process.env.NEXTAUTH_SECRET_FACEBOOK_CLIENT_SECRET
       }),
       GitHubProvider({
-         clientId: process.env.GITHUB_CLIENT_ID,
-         clientSecret: process.env.GITHUB_CLIENT_SECRET
+         clientId: process.env.NEXTAUTH_SECRET_GITHUB_CLIENT_ID,
+         clientSecret: process.env.NEXTAUTH_SECRET_GITHUB_CLIENT_SECRET
       }),
    ],
    pages: {
