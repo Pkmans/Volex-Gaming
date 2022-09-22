@@ -1,34 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Volex Gaming
+A React Ecommerce Web App featuring gaming equipment  
 
-## Getting Started
+Live Demo - [Volex Gaming](https://volex-gaming.vercel.app/)  
+Built with: [React](https://reactjs.org/) · [Sanity](https://www.sanity.io/) · [Stripe](https://stripe.com/en-gb-ca) · [OAuth 2.0](https://oauth.net/2/)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
+# Functionality
+
+- View products from a headless CMS (Sanity) and display on front-end
+- Login using Oauth2.0 
+- Click on products to view their full information
+- Add a specified quantity of item to a shopping cart session
+- Update item quantities from cart
+- Remove items from cart
+- Pay using a Stripe checkout session
+- Cart items persist on page refresh/close
+- Login status persist on page refresh/close
 ```
+*DO NOT* enter your real credit card information!  
+```
+### Stripe provides a [Test Card](https://stripe.com/docs/testing#use-test-cards) for checking out.  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Card number**: 4242 4242 4242 4242.  
+**Expiry Date**: any valid future date.  
+**CVC**: any three-digit number.  
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+# ScreenShots
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+|Home|Product Detail|
+|---|---|
+|![Home](https://user-images.githubusercontent.com/60535510/191824026-753a2bbb-eedf-4610-9f07-c6c18e5b354a.png)|![Product Detail](https://user-images.githubusercontent.com/60535510/191824175-7a44992c-fe01-42f7-8a5f-3771c7681143.png)|
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+|Category|Login|
+|---|---|
+|![Category](https://user-images.githubusercontent.com/60535510/191824099-060d0c04-eb02-40ee-94c6-4fa6c572314e.png)|![Login](https://user-images.githubusercontent.com/60535510/191824148-05f56133-379c-4dcc-b843-95098450f9df.png)|
 
-## Learn More
+|Shopping Cart|Stripe Checkout|
+|---|---|
+|![Shopping Cart](https://user-images.githubusercontent.com/60535510/191824251-a5906ce7-fbc9-453d-9bdd-51409ee10eb9.png)|![Stripe Checkout](https://user-images.githubusercontent.com/60535510/191824290-e6644592-404e-4224-8a37-0e1ea4843083.png)|
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+([back to top](#volex-gaming))
