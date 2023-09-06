@@ -1,4 +1,4 @@
-# Volex Gaming
+# Volex Gaming - [Live Demo](https://volex-gaming.vercel.app/)  
 A React Ecommerce Web App featuring gaming equipment  
 
 Live Demo - [Volex Gaming](https://volex-gaming.vercel.app/)  
